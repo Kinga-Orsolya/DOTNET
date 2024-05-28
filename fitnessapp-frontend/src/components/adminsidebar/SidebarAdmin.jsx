@@ -23,7 +23,25 @@ const SidebarAdmin = () => {
                     <span className="symbols">
                         <img src="assets/contentui/gym2.png" alt="homepage"></img>
                     </span>
-                    <a href="/Admin/ClientList">Client List</a>
+                    <a href="/Admin/Clients">Clients</a>
+                </li>
+                <li>
+                    <span className="symbols">
+                        <img src="assets/contentui/gym2.png" alt="homepage"></img>
+                    </span>
+                    <a href="/Admin/Entries">Entries</a>
+                </li>
+                <li>
+                    <span className="symbols">
+                        <img src="assets/contentui/gym2.png" alt="homepage"></img>
+                    </span>
+                    <a href="/Admin/Memberships">Memberships</a>
+                </li>
+                <li>
+                    <span className="symbols">
+                        <img src="assets/contentui/gym2.png" alt="homepage"></img>
+                    </span>
+                    <a href="/Admin/Gyms">Gyms</a>
                 </li>
 
                

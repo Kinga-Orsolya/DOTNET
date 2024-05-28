@@ -3,7 +3,7 @@
 import SidebarAdmin from "../../../components/adminsidebar/SidebarAdmin";
 
 
-const ClientList = () =>{
+const GymsPage = () =>{
     import("./index.css");
     
 
@@ -30,4 +30,4 @@ const ClientList = () =>{
 
 }
 
-export default ClientList;
+export default GymsPage;
