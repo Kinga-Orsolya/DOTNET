@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .layout {
+    display: grid;
+    grid-template-rows: 4rem 6rem auto 6rem 6rem 4rem;
+    grid-template-columns: 250px 1fr;
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "sidebar widget"
+      "sidebar statistics"
+      "footer footer";
+    height: 100vh;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  @media (min-width: 480px) {
+    .layout {
+      display: grid;
+      grid-template-rows: 3rem auto 3rem;
+      grid-template-columns: 250px auto auto;
+      grid-template-areas:
+        "sidebar header header"
+        "sidebar main main"
+        "sidebar footer footer";
+    }
+  }
+  
+  header {
+    grid-area: header;
+    background: #eee;
+    text-align: center;
+  }
+  
+  footer {
+    grid-area: footer;
+    background: #eee;
+    padding-top: 10px;
+    text-align: center;
+  }
+  
+  nav.menu {
+    grid-area: sidebar;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .landing-page {
+    grid-area: main;
+    background: #eee;
+    padding: 20px;
+  }
+  
+  .content {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-family: fantasy;
+  }
+  
+  .content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    padding: 20px 1px;
+    margin: 10px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(116, 118, 119, 0.4), 0 4px 6px -4px rgba(38, 39, 39, 0.4);
+    border-radius: 10px;
+    background: linear-gradient(45deg, #660419ea 0%, #e9835b 100%);
+    color: white;
+  }
+  
+  .card h2 {
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    margin: 5px 0;
+  }
+  
+  .card button {
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin-top: 10px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 5px 10px -3px rgba(118, 119, 119, 0.4), 0 2px 3px -2px rgba(25, 25, 26, 0.4);
+  }
+  
+  .card button:hover {
+    background-color: #ddd;
+  }
+  
