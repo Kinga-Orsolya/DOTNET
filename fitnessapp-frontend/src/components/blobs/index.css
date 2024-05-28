@@ -1,0 +1,32 @@
+.blob {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    filter: blur(100px); /* Csak a blur effektus marad meg */
+    opacity: 0.8; /* Csökkentjük az áttetszőséget, hogy a háttér világosabb legyen */
+    border-radius: 50%; /* Kerekítjük a blob formát */
+    animation: move 20s infinite alternate; /* Mozgás animáció hozzáadása */
+}
+
+/* Háttér blob stílusok és animáció */
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color:rgb(220, 215, 201) ;
+}
+
+/* Mozgás animáció */
+@keyframes move {
+    from {
+        transform: translate(-100px, -50px) rotate(-90deg);
+        border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+    }
+    to {
+        transform: translate(500px, 100px) rotate(-10deg);
+        border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+    }
+}
+
+

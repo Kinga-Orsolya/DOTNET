@@ -85,6 +85,39 @@ h1{
     margin-bottom: 20px;
 }
 
+.buttons {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.join-now {
+    
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    margin-right: 10px;
+    border-radius: 36px;
+background: linear-gradient(225deg, #f0f0f0, #cacaca);
+box-shadow:  -23px 23px 47px #afafaf,
+             23px -23px 47px #e5990b;
+}
+
+.find-gym {
+    background-color: white;
+    color: rgb(79, 32, 13);
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 20px;
+background: linear-gradient(225deg, #f0f0f0,rgb(104, 44, 14));
+box-shadow:  -23px 23px 47px rgb(158, 118, 118),
+             23px -23px 47px #cacaca;
+}
+
 .stretch-image {
     width: 30%;
     border-radius: 50%;
@@ -95,18 +128,3 @@ h1{
 .runner-image {
     width: 40%;
 }
-
-.button-shop{
-    border-radius: 10px;
-    padding: 12px 45px;
-    margin-inline: 10px;
-
-}
-
-.button-join{
-    border-radius: 10px;
-    padding: 12px 45px;
-
-}
-
-

@@ -1,12 +1,12 @@
 //import React from "react"; // Nem mindig szükséges, de ajánlott a konzisztensebb kód érdekében
 import "./index.css";
 
-const Sidebar = () => {
+const SidebarAdmin = () => {
     return (
         <div className="sidebar">
             <div className="sidebar-logo">
                 <img src="assets/contentvec/gym.png" />
-                <h2> MomentumG </h2>
+                <h2> MomentumG Admin</h2>
             </div>
 
             <ul className="sidebar-links">
@@ -25,19 +25,14 @@ const Sidebar = () => {
                     <a href="/landingpage">Gym</a>
                 </li>
 
-                <li>
-                    <span className="symbols">
-                        <img src="assets/contentui/bag.png" alt="homepage"></img>
-                    </span>
-                    <a href="/landingpage">Shop</a>
-                </li>
+               
 
-                <li>
+                {/* <li>
                     <span className="symbols">
                         <img src="assets/contentui/profile.png" alt="homepage"></img>
                     </span>
                     <a href="/landingpage">Profile</a>
-                </li>
+                </li> */}
 
 
                 <li>
@@ -54,4 +49,4 @@ const Sidebar = () => {
     );
 };
 
-export default Sidebar;
+export default SidebarAdmin;
