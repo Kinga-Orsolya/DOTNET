@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background:rgb(115, 144, 114);
+    background: linear-gradient(42deg, rgb(115, 144, 114) 20%, rgb(49, 48, 77) 100%);
     backdrop-filter: blur(17px);
     -webkit-backdrop-filter: blur(17px); /* Corrected the syntax here */
 }

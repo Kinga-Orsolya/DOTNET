@@ -22,7 +22,7 @@ const MainPage = () =>{
                 
                 
             </div>
-            <img src="assets/contentvec/lifting.png" alt="Runner" className="runner-image" />
+            <img src="assets/contentvec/stats.png" alt="Stats" className="runner-image" />
         </div>
         
         <footer>
