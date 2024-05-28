@@ -1,7 +1,7 @@
 //import React from "react"; // Nem mindig szükséges, de ajánlott a konzisztensebb kód érdekében
-import "./index.css";
 
 const Sidebar = () => {
+    import("./index.css");
     return (
         <div className="sidebar">
             <div className="sidebar-logo">

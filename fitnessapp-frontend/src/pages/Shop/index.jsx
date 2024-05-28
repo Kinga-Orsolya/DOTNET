@@ -1,5 +1,4 @@
 import Sidebar from "../../components/sidebar/Sidebar";
-import "./index.css"
 
 
 
@@ -76,6 +75,7 @@ const memberships = [
       }
   ];
 const ShopPage =() => {
+  import("./index.css");
     return (
     <div className="layout-shop">
       <header>

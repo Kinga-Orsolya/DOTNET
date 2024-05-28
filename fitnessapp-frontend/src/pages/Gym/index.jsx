@@ -1,11 +1,10 @@
 import GymCard from "../../components/gymcard/Gymcard";
 import Sidebar from "../../components/sidebar/Sidebar";
 
-import "./index.css"
 
 
 const GymPage =() => {
-
+  import("./index.css");
 
     
 
@@ -23,11 +22,13 @@ const GymPage =() => {
           <h1>Choose the Gym that Fits Best for You</h1>
           
         
-
+        <div className="gym-card-holder">
           <GymCard/>
           <GymCard/>
           <GymCard/>
           <GymCard/>
+        </div>
+          
 
           
         </div>

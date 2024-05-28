@@ -1,6 +1,5 @@
 import SidebarAdmin from "../../../components/adminsidebar/SidebarAdmin";
 import Gymcard from "../../../components/gymcard/Gymcard";
-import "./index.css"
 
 
 
@@ -77,6 +76,8 @@ const memberships = [
       }
   ];
 const ShopPage =() => {
+  import("./index.css");
+
     return (
     <div className="layout-shop">
       <header>
@@ -94,7 +95,7 @@ const ShopPage =() => {
           <div className="gym-show"> 
           <Gymcard name="Momentum Gym" subtitle="Gym is available now" />
 
-          <Gymcard name="Momentum Gym" subtitle="Gym is available now" />
+      
 
           </div>
 

@@ -1,7 +1,8 @@
 //import React from 'react';
-import "./index.css"
 
 const Blob = ({ top, left, backgroundColor }) => {
+    import("./index.css");
+    
     const blobStyle = {
         top: top,
         left: left,

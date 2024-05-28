@@ -1,11 +1,11 @@
-import "./index.css";
+
 //import { useState,useEffect } from "react";
 
 import SidebarAdmin from "../../../components/adminsidebar/SidebarAdmin";
 
 
 const MainPage = () =>{
-    
+    import("./index.css");    
 
     return (
     <div className="layout">

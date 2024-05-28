@@ -1,4 +1,3 @@
-import "./index.css";
 //import { useState,useEffect } from "react";
 
 import Sidebar from "../../components/sidebar/Sidebar";
@@ -8,7 +7,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 
 
 const MainPage = () =>{
-    
+    import("./index.css");
 
     return (
     <div className="layout">

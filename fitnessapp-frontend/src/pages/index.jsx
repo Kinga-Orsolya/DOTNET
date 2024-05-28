@@ -1,7 +1,7 @@
-import "./index.css";
 import Blob from "../components/blobs/Blob";
 import Button from "../components/button/Button";
 const Home = () => {
+  import("./index.css");
   return (
     <div className="container-home">
           <div className="background">

@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import './index.css';
 //import Blob from "../../components/blobs/Blob";
 import Button from "../../components/button/Button";
 
 
 const LoginPage = () => {
+    import("./index.css");
 
     useEffect(() => {
         const signUpButton = document.getElementById('signUp');

@@ -1,8 +1,8 @@
-import "./index.css"
 
 
 
 const GymCard = ({ name, is_active }) => {
+  import("./index.css");
     return (
       <div className="card-gym">
         <div className="card-gym-img"></div>

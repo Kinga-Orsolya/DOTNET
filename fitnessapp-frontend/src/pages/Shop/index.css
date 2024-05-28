@@ -43,6 +43,7 @@ header {
   .landing-page-shop {
     grid-area: main;
     background: #eee;
+    width: calc(100vw - 250px);
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,7 +1,8 @@
 //import React from "react"; // Nem mindig szükséges, de ajánlott a konzisztensebb kód érdekében
-import "./index.css";
 
 const SidebarAdmin = () => {
+    import("./index.css");
+    
     return (
         <div className="sidebar">
             <div className="sidebar-logo">
@@ -22,7 +23,7 @@ const SidebarAdmin = () => {
                     <span className="symbols">
                         <img src="assets/contentui/gym2.png" alt="homepage"></img>
                     </span>
-                    <a href="/Admin/Shop">Gym</a>
+                    <a href="/Admin/ClientList">Client List</a>
                 </li>
 
                
@@ -48,5 +49,8 @@ const SidebarAdmin = () => {
         </div>
     );
 };
+
+
+
 
 export default SidebarAdmin;
