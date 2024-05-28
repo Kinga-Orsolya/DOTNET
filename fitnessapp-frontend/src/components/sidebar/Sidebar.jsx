@@ -15,28 +15,21 @@ const Sidebar = () => {
                     <span className="symbols">
                         <img src="assets/contentui/home.png" alt="homepage"></img>
                     </span>
-                    <a href="/landingpage">Home</a>
+                    <a href="/MainLayout">Home</a>
                 </li>
 
                 <li>
                     <span className="symbols">
                         <img src="assets/contentui/gym2.png" alt="homepage"></img>
                     </span>
-                    <a href="/landingpage">Gym</a>
+                    <a href="/Gym">Gym</a>
                 </li>
 
                 <li>
                     <span className="symbols">
                         <img src="assets/contentui/bag.png" alt="homepage"></img>
                     </span>
-                    <a href="/landingpage">Shop</a>
-                </li>
-
-                <li>
-                    <span className="symbols">
-                        <img src="assets/contentui/profile.png" alt="homepage"></img>
-                    </span>
-                    <a href="/landingpage">Profile</a>
+                    <a href="/Shop">Shop</a>
                 </li>
 
 
