@@ -1,4 +1,5 @@
-import Sidebar from "../../components/sidebar/Sidebar";
+import SidebarAdmin from "../../../components/adminsidebar/SidebarAdmin";
+import Gymcard from "../../../components/gymcard/Gymcard";
 import "./index.css"
 
 
@@ -82,13 +83,24 @@ const ShopPage =() => {
         <p>Join our community and reserve your membership now! Get fit</p>
       </header>
       <nav className="menu-shop">
-        <Sidebar/>
+        <SidebarAdmin/>
 
       </nav>
       <div className="landing-page-shop">
         <div className="content-shop">
           <h1>MomentumGym Memberships</h1>
           <h3>Check out our latest offers and choose the plan that fits you best!</h3>
+
+          <div className="gym-show"> 
+          <Gymcard name="Momentum Gym" subtitle="Gym is available now" />
+
+          <Gymcard name="Momentum Gym" subtitle="Gym is available now" />
+
+          </div>
+
+
+          
+
           <div className="cards-container">
             {memberships.map((membership, index) => (
               <div className="card" key={index}>
@@ -98,7 +110,7 @@ const ShopPage =() => {
                 <p><strong>Available Entries:</strong> {membership.available_entries}</p>
                 <p><strong>Hours:</strong> {membership.hours_from} - {membership.hours_to}</p>
                 <p><strong>Occasions per Day:</strong> {membership.occasions_per_day}</p>
-                <button className="button-card">Buy now</button>
+                
               </div>
             ))}
           </div>

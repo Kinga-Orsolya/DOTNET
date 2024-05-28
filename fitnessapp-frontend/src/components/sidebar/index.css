@@ -12,6 +12,7 @@
     flex-direction: column;
     align-items: center;
     background:rgb(115, 144, 114);
+    background: linear-gradient(47deg, #e2ac6f 0%, #725151 100%);
     backdrop-filter: blur(17px);
     -webkit-backdrop-filter: blur(17px); /* Corrected the syntax here */
 }

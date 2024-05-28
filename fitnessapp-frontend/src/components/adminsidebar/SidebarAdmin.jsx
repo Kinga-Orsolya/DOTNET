@@ -15,14 +15,14 @@ const SidebarAdmin = () => {
                     <span className="symbols">
                         <img src="assets/contentui/home.png" alt="homepage"></img>
                     </span>
-                    <a href="/landingpage">Home</a>
+                    <a href="/Admin/MainLayout">Home</a>
                 </li>
 
                 <li>
                     <span className="symbols">
                         <img src="assets/contentui/gym2.png" alt="homepage"></img>
                     </span>
-                    <a href="/landingpage">Gym</a>
+                    <a href="/Admin/Shop">Gym</a>
                 </li>
 
                
