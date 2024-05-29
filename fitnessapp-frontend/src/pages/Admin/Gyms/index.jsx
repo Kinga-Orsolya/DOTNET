@@ -1,6 +1,7 @@
 //import { useState,useEffect } from "react";
 
 import SidebarAdmin from "../../../components/adminsidebar/SidebarAdmin";
+import GymContent from "../../../components/gymcontent/GymContent";
 
 
 const GymsPage = () =>{
@@ -15,10 +16,11 @@ const GymsPage = () =>{
             <nav className="menu">
                 <SidebarAdmin/>
             </nav>
-            <div className="landing-page">
+            {/* <div className="landing-page">
                 
-                <h1>Kinga  </h1>
-            </div>
+                
+            </div> */}
+            <GymContent/>
             
             <footer>
             <div className="footer"> </div>

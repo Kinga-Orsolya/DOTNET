@@ -105,7 +105,21 @@ const MembershipContent = () => {
     <div className="landing-page">
       {/* Form */}
       <form className="form-membership">
-        <p className="title">Create Memberships </p>
+        <p className="title">Create Memberships </p>        
+
+
+        <label>
+          <span>Gym Id</span>
+          <input
+            type="id"
+            className="input"
+            placeholder=""
+            required
+            name="gymid"
+            onChange={handleInputChange}
+            value={formValue ? formValue.gymId : ""}
+          />
+        </label>
         <label>
           <span>Gym Id</span>
           <input
@@ -145,6 +159,8 @@ const MembershipContent = () => {
             value={formValue ? formValue.price : ""}
           />
         </label>
+
+
         <label>
           <span>Available Days</span>
           <input
@@ -261,7 +277,9 @@ const MembershipContent = () => {
         <tbody>
           {memberships.map((membership, index) => (
             <tr key={index}>
-              <td>{membership.gym?.id}</td>
+
+              <td>{membership.gymId}</td>
+
               <td>{membership.name}</td>
               <td>{membership.price}</td>
               <td>{membership.availableDays}</td>

@@ -1,6 +1,6 @@
 import Sidebar from "../../components/sidebar/Sidebar";
-
-
+import  { useState } from 'react';
+import checkmarkIcon from '/assets/contentvec/shopping-bag.png'; 
 
 const memberships = [
     {
@@ -76,6 +76,16 @@ const memberships = [
   ];
 const ShopPage =() => {
   import("./index.css");
+  const [isPopupVisible, setPopupVisible] = useState(false);
+
+  const handleButtonClick = () => {
+    setPopupVisible(true);
+    setTimeout(() => {
+      setPopupVisible(false);
+    }, 3000); // Hide the popup after 3 seconds
+  };
+
+
     return (
     <div className="layout-shop">
       <header>
@@ -98,12 +108,21 @@ const ShopPage =() => {
                 <p><strong>Available Entries:</strong> {membership.available_entries}</p>
                 <p><strong>Hours:</strong> {membership.hours_from} - {membership.hours_to}</p>
                 <p><strong>Occasions per Day:</strong> {membership.occasions_per_day}</p>
-                <button className="button-card">Buy now</button>
+                <button className="button-card" onClick={handleButtonClick}>Buy now</button>
+              
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      {isPopupVisible && (
+        <div className="popup">
+          <img src={checkmarkIcon} alt="Check mark" className="popup-icon" />
+          <p>Purchase successful!</p>
+        </div>
+      )}
+
       <footer>
         <div className="footer"></div>
         <p>Push it. Lift it. Sweat it.</p>

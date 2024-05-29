@@ -124,4 +124,24 @@ footer {
     background-color: #a0a0a0;
   }
   
+  .popup {
+    position: fixed;
+    bottom: 20px;  /* Distance from the bottom of the viewport */
+    right: 20px;   /* Distance from the right side of the viewport */
+    background-color: #4caf50;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 1000;
+    display: flex; /* Flex display to align items horizontally */
+    align-items: center;
+  }
+  
+  .popup-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+  }
   
