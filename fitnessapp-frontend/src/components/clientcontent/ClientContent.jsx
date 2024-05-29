@@ -13,7 +13,7 @@ const ClientContent = () => {
   const [isEditing, setIsEditing] = useState(false);
 
   /**
-   * @type {ReturnType<typeof useState<ClientDTOOut>>}
+   * @type {ReturnType<typeof useState<ClientDTOOut[]>>}
    */
   const [clients, setClients] = useState([
     {
@@ -51,13 +51,13 @@ const ClientContent = () => {
       alert(`User has been updated (${formValue.id})`);
       setClients(clients.map((c) => (c.id === formValue.id ? formValue : c)));
       setFormValue();
+      setIsEditing(false);
       return;
     }
 
     // Create
     // TODO: APi call here
     alert("User has been created");
-    console.log(formValue);
     setClients([...clients, formValue]);
     setFormValue();
   }
@@ -94,6 +94,7 @@ const ClientContent = () => {
             className="input"
             placeholder=""
             required
+            
             name="name"
             onChange={handleInputChange}
             value={formValue ? formValue.name : ""}
@@ -189,7 +190,7 @@ const ClientContent = () => {
           {isEditing ? "Update" : "Create"}
         </button>
         {isEditing && (
-          <button className="submit" onClick={() => setFormValue()}>
+          <button className="submit" onClick={() => {setFormValue(); setIsEditing(false)}}>
             Clear
           </button>
         )}
