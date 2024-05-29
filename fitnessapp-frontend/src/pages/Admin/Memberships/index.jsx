@@ -1,6 +1,7 @@
 //import { useState,useEffect } from "react";
 
 import SidebarAdmin from "../../../components/adminsidebar/SidebarAdmin";
+import MembershipContent from "../../../components/membershipcontent/MembershipContent";
 
 
 const MembershipsPage = () =>{
@@ -15,10 +16,11 @@ const MembershipsPage = () =>{
             <nav className="menu">
                 <SidebarAdmin/>
             </nav>
-            <div className="landing-page">
+            {/* <div className="landing-page">
                 
-                <h1>Kinga  </h1>
-            </div>
+                
+            </div> */}
+            <MembershipContent/>
             
             <footer>
             <div className="footer"> </div>
