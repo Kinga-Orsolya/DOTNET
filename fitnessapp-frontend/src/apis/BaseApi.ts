@@ -16,7 +16,7 @@ import { UserDTOIn } from '../types/DTOIns/UserDTOIn.type';
 
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:8000/api',
+  baseURL: 'https://localhost:7213/api',
   withCredentials: true,
   timeout: 2500
 });
