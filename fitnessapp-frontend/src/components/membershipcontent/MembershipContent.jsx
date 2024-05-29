@@ -1,7 +1,8 @@
 /**
  * @typedef {import('../../types/DTOOuts/MembershipDTOOut.type.ts').default} MembershipDTOOut
  */
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { BaseApi } from "../../apis/BaseAPI.ts";
 
 const MembershipContent = () => {
   import("./index.css"); // Ebből a fájlból fogjuk a stílusokat importálni
@@ -15,57 +16,72 @@ const MembershipContent = () => {
   /**
    * @type {ReturnType<typeof useState<MembershipDTOOut[]>>}
    */
-  const [memberships, setMemberships] = useState([
-    {
-        id: 1,
-        gymId: 101,
-        name: "Standard Membership",
-        price: 49.99,
-        availableDays: 30,
-        availableEntries: 20,
-        hoursFrom: "PT6H", // 06:00 AM in ISO 8601 duration format
-        hoursTo: "PT22H", // 10:00 PM in ISO 8601 duration format
-        occasionsPerDay: 1,
-        isActive: true
-    },
-    {
-        id: 2,
-        gymId: 101,
-        name: "Premium Membership",
-        price: 79.99,
-        availableDays: 30,
-        availableEntries: 30,
-        hoursFrom: "PT5H", // 05:00 AM in ISO 8601 duration format
-        hoursTo: "PT23H", // 11:00 PM in ISO 8601 duration format
-        occasionsPerDay: 2,
-        isActive: true
-    },
-  ]);
+  // const [memberships, setMemberships] = useState([
+  //   {
+  //       id: 1,
+  //       gymId: 101,
+  //       name: "Standard Membership",
+  //       price: 49.99,
+  //       availableDays: 30,
+  //       availableEntries: 20,
+  //       hoursFrom: "PT6H", // 06:00 AM in ISO 8601 duration format
+  //       hoursTo: "PT22H", // 10:00 PM in ISO 8601 duration format
+  //       occasionsPerDay: 1,
+  //       isActive: true
+  //   },
+  //   {
+  //       id: 2,
+  //       gymId: 101,
+  //       name: "Premium Membership",
+  //       price: 79.99,
+  //       availableDays: 30,
+  //       availableEntries: 30,
+  //       hoursFrom: "PT5H", // 05:00 AM in ISO 8601 duration format
+  //       hoursTo: "PT23H", // 11:00 PM in ISO 8601 duration format
+  //       occasionsPerDay: 2,
+  //       isActive: true
+  //   },
+  // ]);
+  const [memberships, setMemberships] = useState([]);
 
   // TODO: change hardcoded values to API call
+  useEffect(() => {
+    async function fetchData() {
+      const newMemberships = await BaseApi.getAllMemberships();
+      setMemberships(newMemberships);
+    }
+    
+    fetchData();
+  }, []);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     // Update
     if (isEditing) {
       // TODO: APi call here
+      await BaseApi.updateMembership(formValue.id, formValue);
+
       alert(`The membership has been updated (${formValue.id})`);
       setMemberships(memberships.map((m) => (m.id === formValue.id ? formValue : m)));
       setFormValue();
       setIsEditing(false);
+
       return;
     }
 
     // Create
     // TODO: APi call here
+    await BaseApi.createMembership(formValue);
+
     alert("Membership has been created");
     setMemberships([...memberships, formValue]);
     setFormValue();
   }
 
-  function handleDelete(id) {
+  async function handleDelete(id) {
     // TODO: APi call here
+    await BaseApi.deleteMembership(id);
 
     alert(`Membership deleted (${id})`);
 
@@ -90,6 +106,20 @@ const MembershipContent = () => {
       {/* Form */}
       <form className="form-membership">
         <p className="title">Create Memberships </p>
+        <label>
+          <span>Gym Id</span>
+          <input
+            type="id"
+            className="input"
+            placeholder=""
+            required
+
+            name="gymId"
+            onChange={handleInputChange}
+            value={formValue ? formValue.gymId : ""}
+          />
+        </label>
+
         <label>
           <span>Name</span>
           <input
@@ -214,6 +244,7 @@ const MembershipContent = () => {
       <table>
         <thead>
           <tr>
+            <th>Gym Id</th>
             <th>Name</th>
             <th>Price</th>
             <th>Available for Days</th>
@@ -230,6 +261,7 @@ const MembershipContent = () => {
         <tbody>
           {memberships.map((membership, index) => (
             <tr key={index}>
+              <td>{membership.gym?.id}</td>
               <td>{membership.name}</td>
               <td>{membership.price}</td>
               <td>{membership.availableDays}</td>

@@ -4,8 +4,8 @@ type MembershipDTOIn = {
   price: number,
   availableDays: number,
   availableEntries: number,
-  hoursFrom: string, // TimeSpan type is represented as string in ISO 8601 duration format
-  hoursTo: string, // TimeSpan type is represented as string in ISO 8601 duration format
+  hoursFrom: number,
+  hoursTo: number,
   occasionsPerDay: number,
   isActive: boolean
 }

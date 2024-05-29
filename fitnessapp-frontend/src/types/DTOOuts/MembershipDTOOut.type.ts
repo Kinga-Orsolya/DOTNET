@@ -1,12 +1,14 @@
+import GymDTOOut from "./GymDTOOut.type";
+
 type MembershipDTOOut = {
   id: number,
-  gymId: number,
+  gym: GymDTOOut,
   name: string,
   price: number,
   availableDays: number,
   availableEntries: number,
-  hoursFrom: string, // TimeSpan type is represented as string in ISO 8601 duration format
-  hoursTo: string, // TimeSpan type is represented as string in ISO 8601 duration format
+  hoursFrom: number,
+  hoursTo: number,
   occasionsPerDay: number,
   isActive: boolean
 }

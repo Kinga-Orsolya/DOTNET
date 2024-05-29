@@ -1,11 +1,11 @@
 type ClientsMembershipDTOIn = {
   clientId: number,
   membershipId: number,
-  boughtAtDate: Date,
+  boughtAtDate: string,
   boughtAtPrice: number,
   barcode: string,
   entriesCount: number,
-  usedFirstAt: Date,
+  usedFirstAt: string,
   isActive: boolean
 }
 

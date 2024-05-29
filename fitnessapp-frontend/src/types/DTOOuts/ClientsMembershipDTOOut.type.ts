@@ -1,12 +1,15 @@
+import ClientDTOOut from "./ClientDTOOut.type";
+import MembershipDTOOut from "./MembershipDTOOut.type";
+
 type ClientsMembershipDTOOut = {
   id: number,
-  clientId: number,
-  membershipId: number,
-  boughtAtDate: Date,
+  client: ClientDTOOut,
+  membership: MembershipDTOOut,
+  boughtAtDate: string,
   boughtAtPrice: number,
   barcode: string,
   entriesCount: number,
-  usedFirstAt: Date,
+  usedFirstAt: string,
   isActive: boolean
 }
 

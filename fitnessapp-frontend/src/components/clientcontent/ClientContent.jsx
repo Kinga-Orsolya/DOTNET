@@ -1,7 +1,8 @@
 /**
  * @typedef {import('../../types/DTOOuts/ClientDTOOut.type.ts').default} ClientDTOOut
  */
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { BaseApi } from "../../apis/BaseAPI.ts";
 
 const ClientContent = () => {
   import("./index.css"); // Ebből a fájlból fogjuk a stílusokat importálni
@@ -15,57 +16,72 @@ const ClientContent = () => {
   /**
    * @type {ReturnType<typeof useState<ClientDTOOut[]>>}
    */
-  const [clients, setClients] = useState([
-    {
-      id: 1,
-      name: "John Doe",
-      email: "john.doe@example.com",
-      telephone: "123-456-7890",
-      photo: new Uint8Array([1, 2, 3]), // Example Uint8Array data
-      serialNumber: 123456,
-      address: "123 Main St, Anytown, USA",
-      barcode: "123456789012",
-      isActive: true,
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      email: "jane.smith@example.com",
-      telephone: "987-654-3210",
-      photo: new Uint8Array([4, 5, 6]), // Example Uint8Array data
-      serialNumber: 654321,
-      address: "456 Elm St, Othertown, USA",
-      barcode: "210987654321",
-      isActive: false,
-    },
-  ]);
+  // const [clients, setClients] = useState([
+  //   {
+  //     id: 1,
+  //     name: "John Doe",
+  //     email: "john.doe@example.com",
+  //     telephone: "123-456-7890",
+  //     photo: new Uint8Array([1, 2, 3]), // Example Uint8Array data
+  //     serialNumber: 123456,
+  //     address: "123 Main St, Anytown, USA",
+  //     barcode: "123456789012",
+  //     isActive: true,
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Jane Smith",
+  //     email: "jane.smith@example.com",
+  //     telephone: "987-654-3210",
+  //     photo: new Uint8Array([4, 5, 6]), // Example Uint8Array data
+  //     serialNumber: 654321,
+  //     address: "456 Elm St, Othertown, USA",
+  //     barcode: "210987654321",
+  //     isActive: false,
+  //   },
+  // ]);
+  const [clients, setClients] = useState([]);
 
   // TODO: change hardcoded values to API call
+  useEffect(() => {
+    async function fetchData() {
+      const newClients = await BaseApi.getAllClients();
+      setClients(newClients);
+    }
+    
+    fetchData();
+  }, []);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     // Update
     if (isEditing) {
       // TODO: APi call here
-      alert(`User has been updated (${formValue.id})`);
+      await BaseApi.updateClient(formValue.id, formValue);
+
+      alert(`Client has been updated (${formValue.id})`);
       setClients(clients.map((c) => (c.id === formValue.id ? formValue : c)));
       setFormValue();
       setIsEditing(false);
+
       return;
     }
 
     // Create
     // TODO: APi call here
-    alert("User has been created");
+    await BaseApi.createClient(formValue);
+
+    alert("Client has been created");
     setClients([...clients, formValue]);
     setFormValue();
   }
 
-  function handleDelete(id) {
+  async function handleDelete(id) {
     // TODO: APi call here
+    await BaseApi.deleteClient(id);
 
-    alert(`User deleted (${id})`);
+    alert(`Client deleted (${id})`);
 
     // Remove from state
     setClients(clients?.filter((c) => c.id !== id));

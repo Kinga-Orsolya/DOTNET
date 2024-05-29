@@ -37,7 +37,7 @@ const Sidebar = () => {
                     <span className="symbols">
                         <img src="assets/contentui/exit.png" alt="homepage"></img>
                     </span>
-                    <a href="/landingpage">Log Out</a>
+                    <a href="/">Log Out</a>
                 </li>
             </ul>
 

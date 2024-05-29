@@ -1,7 +1,7 @@
 type EntryDTOIn = {
   clientId: number,
   membershipId: number,
-  date: Date,
+  date: string,
   barcode: string,
   insertedByUid: number
 }
