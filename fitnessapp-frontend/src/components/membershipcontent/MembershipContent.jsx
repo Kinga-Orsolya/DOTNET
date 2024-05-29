@@ -105,21 +105,7 @@ const MembershipContent = () => {
     <div className="landing-page">
       {/* Form */}
       <form className="form-membership">
-        <p className="title">Create Memberships </p>        
-
-
-        <label>
-          <span>Gym Id</span>
-          <input
-            type="id"
-            className="input"
-            placeholder=""
-            required
-            name="gymid"
-            onChange={handleInputChange}
-            value={formValue ? formValue.gymId : ""}
-          />
-        </label>
+        <p className="title">Create Memberships </p>
         <label>
           <span>Gym Id</span>
           <input

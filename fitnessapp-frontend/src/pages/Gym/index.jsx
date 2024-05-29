@@ -1,14 +1,38 @@
+import { useEffect, useState } from "react";
+import { BaseApi } from "../../apis/BaseAPI.ts";
 import GymCard from "../../components/gymcard/Gymcard";
 import Sidebar from "../../components/sidebar/Sidebar";
-
 
 
 const GymPage =() => {
   import("./index.css");
 
-    
+  // const gyms = [
+  //   {
+  //     name: 'Fitness World',
+  //     is_active: true
+  //   },
+  //   {
+  //     name: 'Healthy Life Gym',
+  //     is_active: false
+  //   },
+  //   {
+  //     name: 'Powerhouse Gym',
+  //     is_active: true
+  //   }
+  // ];
+  const [gyms, setGyms] = useState([]);
 
-    return (
+  useEffect(() => {
+    async function fetchData() {
+      const newGyms = await BaseApi.getAllGyms();
+      setGyms(newGyms);
+    }
+    
+    fetchData();
+  }, []);
+
+  return (
     <div className="layout-shop">
       <header>
         <p>Join our community and reserve your membership now! Get fit</p>
@@ -23,10 +47,9 @@ const GymPage =() => {
           
         
         <div className="gym-card-holder">
-          <GymCard/>
-          <GymCard/>
-          <GymCard/>
-          <GymCard/>
+          { gyms.map((gym, index) => (
+            <GymCard key={index} name={gym.name} is_active={gym.isActive} />
+          )) }
         </div>
           
 
@@ -38,7 +61,7 @@ const GymPage =() => {
         <p>Push it. Lift it. Sweat it.</p>
       </footer>
       </div>
-    );
+  );
 }
 
 export default GymPage;

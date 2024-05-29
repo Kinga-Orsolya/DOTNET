@@ -1,7 +1,8 @@
 /**
  * @typedef {import('../../types/DTOOuts/MembershipDTOOut.type.ts').default} MembershipDTOOut
  */
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { BaseApi } from "../../apis/BaseAPI.ts";
 
 const GymContent = () => {
   import("./index.css"); // Ebből a fájlból fogjuk a stílusokat importálni
@@ -15,34 +16,46 @@ const GymContent = () => {
   /**
    * @type {ReturnType<typeof useState<MembershipDTOOut[]>>}
    */
-  const [gyms, setGyms] = useState([
- 
-  ]);
+  const [gyms, setGyms] = useState([]);
 
   // TODO: change hardcoded values to API call
+  useEffect(() => {
+    async function fetchData() {
+      const newGyms = await BaseApi.getAllGyms();
+      setGyms(newGyms);
+    }
+    
+    fetchData();
+  }, []);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     // Update
     if (isEditing) {
       // TODO: APi call here
+      await BaseApi.updateGym(formValue.id, formValue);
+
       alert(`The gym info has been updated (${formValue.id})`);
       setGyms(gyms.map((g) => (g.id === formValue.id ? formValue : g)));
       setFormValue();
       setIsEditing(false);
+
       return;
     }
 
     // Create
     // TODO: APi call here
+    await BaseApi.createGym(formValue);
+
     alert("Gym has been created");
     setGyms([...gyms, formValue]);
     setFormValue();
   }
 
-  function handleDelete(id) {
+  async function handleDelete(id) {
     // TODO: APi call here
+    await BaseApi.deleteGym(id);
 
     alert(`Gym had been closed (deleted) (${id})`);
 
@@ -66,21 +79,7 @@ const GymContent = () => {
     <div className="landing-page">
       {/* Form */}
       <form className="form-gym">
-        <p className="title">Add a New Gym</p>        
-
-
-        <label>
-          <span>Id</span>
-          <input
-            type="id"
-            className="input"
-            placeholder=""
-            required
-            name="id"
-            onChange={handleInputChange}
-            value={formValue ? formValue.id : ""}
-          />
-        </label>
+        <p className="title">Add a New Gym</p>
         <label>
           <span>Name</span>
           <input
